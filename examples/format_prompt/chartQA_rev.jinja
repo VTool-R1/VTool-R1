@@ -1,0 +1,215 @@
+{{ content | trim }} 
+
+"""
+
+Here are some tools that can help you. All are python codes. They are in tools.py and will be imported for you.
+You will be given a table figure: image_1 and a question.
+Notice that you, as an AI assistant, are not good at answering questions when there are too many unnecessary and irrelevant information. You should determine which are the relevant columns to the question, and specify them in a python list. You should use the given column headers.
+You should also determine which are the relevant rows to the question, and specify them in a python list. You should use the given row headers.
+You could select the tools to focus on some columns / rows, or mask out some columns / rows. Use whichever tool you think is more appropriate.
+Variables rows_bbox and columns_bbox are already defined and given, and you should pass in these variables directly.
+For example, use focus_on_columns_with_highlight(image, ["Year", "Name"], columns_bbox), do not self assign columns_bbox, such as focus_on_columns_with_highlight(image, ["Year", "Name"], {"Year": {'x1': 0.1, 'y1': 0.1, 'x2': 0.3, 'y2': 0.9}, "Team": {'x1': 0.4, 'y1': 0.1, 'x2': 0.6, 'y2': 0.9}}).
+
+Below are the tools in tools.py:
+```python
+def focus_on_columns_with_highlight(image, columns_to_focus_on, all_columns_bounding_boxes):
+    \"\"\"
+    This function is useful when you want to focus on some specific columns of the image.
+    It does this by adding light transparent red highlight to the columns that need to be focused on.
+    For example, you can focus on the columns in a table that are relevant to your analysis.
+    Return the drawed image.
+
+    Args:
+        image (PIL.Image.Image): the input image
+        columns_to_mask (List[str]): a list of column names to focus on.
+        all_columns_bounding_boxes: pass in columns_bbox
+
+    Returns:
+        image_with_focused_columns (PIL.Image.Image): the image with specified columns focused on
+        
+    Example:
+        image = Image.open("sample_img.jpg")
+        image_with_focused_columns = focus_on_columns_with_highlight(image, ["Year", "Name"], columns_bbox)
+        display(image_with_focused_columns)
+    \"\"\"
+
+def focus_on_rows_with_highlight(image, rows_to_focus_on, all_rows_bounding_boxes):
+    \"\"\"
+    This function is useful when you want to focus on some specific rows of the image.
+    It does this by adding light transparent red highlight to the rows that need to be focused on.
+    For example, you can focus on the rows in a table that are relevant to your analysis.
+    Return the drawed image.
+    
+    Args:
+        image (PIL.Image.Image): the input image
+        rows_to_focus_on (List[str]): a list of row headers to focus on.
+        all_rows_bounding_boxes: pass in rows_bbox
+    
+    Returns:
+        image_with_focused_rows (PIL.Image.Image): the image with specified rows focused on
+
+    Example:
+        image = Image.open("sample_img.jpg")
+        image_with_focused_rows = focus_on_rows_with_highlight(image, ["1972"], rows_bbox)
+        display(image_with_focused_rows)
+    \"\"\"
+
+def focus_on_columns_with_mask(image, columns_to_focus_on, all_columns_bounding_boxes):
+    \"\"\"
+    This function is useful when you want to focus on some specific columns of the image.
+    It does this by masking out the columns that are not needed.
+    For example, you can focus on the columns in a table that are relevant to your analysis and ignore the rest.
+    Return the masked image.
+
+    Args:
+        image (PIL.Image.Image): the input image
+        columns_to_mask (List[str]): a list of column names to focus on.
+        all_columns_bounding_boxes: pass in columns_bbox
+
+    Returns:
+        image_with_focused_columns (PIL.Image.Image): the image with specified columns focused on
+        
+    Example:
+        image = Image.open("sample_img.jpg")
+        image_with_focused_columns = focus_on_columns(image, ["Year", "Name"], columns_bbox)
+        display(image_with_focused_columns)
+    \"\"\"
+
+def focus_on_rows_with_mask(image, rows_to_focus_on, all_rows_bounding_boxes):
+    \"\"\"
+    This function is useful when you want to focus on some specific rows of the image.
+    It does this by masking out the rows that are not needed.
+    For example, you can focus on the rows in a table that are relevant to your analysis and ignore the rest.
+    Return the masked image.
+    
+    Args:
+        image (PIL.Image.Image): the input image
+        rows_to_focus_on (List[str]): a list of row headers to focus on.
+        all_rows_bounding_boxes: pass in rows_bbox
+    
+    Returns:
+        image_with_focused_rows (PIL.Image.Image): the image with specified rows focused on
+
+    Example:
+        image = Image.open("sample_img.jpg")
+        image_with_focused_rows = focus_on_rows(image, ["1972"], rows_bbox)
+        display(image_with_focused_rows)
+    \"\"\"
+    
+def focus_on_columns_with_draw(image, columns_to_focus_on, all_columns_bounding_boxes):
+    \"\"\"
+    This function is useful when you want to focus on some specific columns of the image.
+    It does this by drawing a red box around the columns that need to be focused on.
+    For example, you can focus on the columns in a table that are relevant to your analysis.
+    Return the drawed image.
+
+    Args:
+        image (PIL.Image.Image): the input image
+        columns_to_mask (List[str]): a list of column names to focus on.
+        all_columns_bounding_boxes: pass in columns_bbox
+
+    Returns:
+        image_with_focused_columns (PIL.Image.Image): the image with specified columns focused on
+        
+    Example:
+        image = Image.open("sample_img.jpg")
+        image_with_focused_columns = focus_on_columns(image, ["Year", "Name"], columns_bbox)
+        display(image_with_focused_columns)
+    \"\"\"
+
+def focus_on_rows_with_draw(image, rows_to_focus_on, all_rows_bounding_boxes):
+    \"\"\"
+    This function is useful when you want to focus on some specific rows of the image.
+    It does this by drawing a red box around the rows that need to be focused on.
+    For example, you can focus on the rows in a table that are relevant to your analysis.
+    Return the drawed image.
+    
+    Args:
+        image (PIL.Image.Image): the input image
+        rows_to_focus_on (List[str]): a list of row headers to focus on.
+        all_rows_bounding_boxes: pass in rows_bbox
+    
+    Returns:
+        image_with_focused_rows (PIL.Image.Image): the image with specified rows focused on
+
+    Example:
+        image = Image.open("sample_img.jpg")
+        image_with_focused_rows = focus_on_columns_with_highlight(image, ["1972"], rows_bbox)
+        display(image_with_focused_rows)
+    \"\"\"
+```
+# GOAL #: Based on the above tools, I want you to reason about how to solve the # USER REQUEST # and generate the actions step by step (each action is a python function call) to solve the request.
+You may need to use the tools above to process the images and make decisions based on the visual outputs of the previous code blocks.
+You should only use the tools above, you should not use other functions or code which will not be executed.
+
+# REQUIREMENTS #:
+1. The generated actions can resolve the given user request # USER REQUEST # perfectly. The user request is reasonable and can be solved. Try your best to solve the request.
+2. The arguments of a tool must be the same format specified in # TOOL LIST #;
+3. If you think you got the answer, use ANSWER: <your answer> Please extract the final answer in FINAL ANSWER: <final answer> and ends with TERMINATE.
+4. All images in the initial user request are stored in PIL Image objects named image_1, image_2, ..., image_n. You can use these images in your code blocks. Use display() function to show the image in the notebook for you too see.
+5. Use as few tools as possible. Only use the tools for the use cases written in the tool description. You can use multiple tools in a single action.
+6. If you have multiple answers, please separate them with || marks. For example, if the answer is 'Alice' and 'Bob', you should write 'Alice||Bob'.
+7. When you focus on columns in the image, most like you need to look at multiple columns instead of a single one. 
+8. If you do not think you have enough information to answer the question on the images returned by the tools, you should directly answer the question based on the original image.
+Below are some examples of how to use the tools to solve the user requests. You can refer to them for help. You can also refer to the tool descriptions for more information.
+9. Only one turn of action, ACTION 0, is allowed. You must provide the answer after maximum one ACTION call.
+
+# EXAMPLE: Simple question that does not require any tool
+# USER REQUEST #: <A image here> What is the title of this table?
+# USER Bounding Box Info: columns_bbox, where keys are column headers and values are column bounding boxes. rows_bbox, where keys are row headers and values are row bounding boxes. The columns in the image are: ["Grade", "Mentor", "Salary"]. The rows in the image start with: ["Grade", "A", "B", "C"].
+# USER IMAGE stored in image_1, as PIL image.
+# RESULT #:
+THOUGHT 0: The question does not require any tool. I can see the title of the table is "Customer Information".
+ACTION 0: No action needed.
+ANSWER: The title of the table is "Customer Information". FINAL ANSWER: Customer Information. TERMINATE
+
+# EXAMPLE:  Focus on specific columns in the image
+# USER REQUEST #: <A image here> Who had the same game version as John Roth?
+# USER Bounding Box Info: columns_bbox, where keys are column headers and values are column bounding boxes. rows_bbox, where keys are row headers and values are row bounding boxes. The columns in the image are: ['Manager Name', 'Game Version', 'Game Score']. The rows in the image start with: ['Manager Name', 'John Roth', 'Alice Smith', 'Bob Johnson'].
+# USER IMAGE stored in image_1, as PIL image.
+# RESULT #:
+THOUGHT 0: To identify who had the same game version as John Roth, I need to focus on the 'Game Version' column and the 'Manager Name' column. Also, I need to focus on all the rows so I do not need to focus on some specific rows.
+ACTION 0:
+```python
+image_with_focused_columns = focus_on_columns_with_draw(image_1, ["Game Version", "Manager Name"], columns_bbox)
+display(image_with_focused_columns)
+```
+OBSERVATION: Execution success. The output is as follows:
+<the image outputs of the code is added as the second image>
+THOUGHT 1: Now I can see the 'Game Version' column and the 'Manager Name' column more clearly. The game version of John Roth is 'v1.2'. Other people with the same game version are 'Alice Smith' and 'Bob Johnson'.
+ANSWER: 'Alice Smith' and 'Bob Johnson' had the same game version as John Roth are. FINAL ANSWER: Alice Smith||Bob Johnson. TERMINATE
+
+# EXAMPLE:  Focus on specific rows in the image
+# USER REQUEST #: <A image here> How many games did Josh win after 1996? 
+# USER Bounding Box Info: columns_bbox, where keys are column names and values are column bounding boxes. rows_bbox, where keys are row headers and values are row bounding boxes. The columns in the image are: ["Rank", "Year", "Score", "Month"]. The rows in the image start with: ["Rank", "0", "1", "2", "3", "4", "5"].
+# USER IMAGE stored in image_1, as PIL image.
+# RESULT #:
+THOUGHT 0: This table is about the games played by Josh that he won. I do not need to focus on any specific columns. I need to focus on the rows with the year after 1996. Three rows have year after 1996: one has year 1997 and this row starts with "3", one has year 1998 and this row starts with "4", and one has year 1999 and this row starts with "5". So I will focus on the rows with row starters "3", "4", and "5".
+ACTION 0:
+```python
+image_with_focused_rows = focus_on_rows_with_highlight(image_1, ["3", "4", "5"], rows_bbox)
+display(image_with_focused_rows)
+```
+OBSERVATION: Execution success. The output is as follows:
+<the image outputs of the code is added as the second image>
+THOUGHT 1: I can see that Josh won 3 games after 1996.
+ANSWER: Josh won 3 games after 1996. FINAL ANSWER: 3. TERMINATE
+
+# EXAMPLE:  Focus on specific columns and specific rows in the image
+# USER REQUEST #: <A image here> what is the sum of annual earnings after 2006? 
+# USER Bounding Box Info: columns_bbox, where keys are column names and values are column bounding boxes. rows_bbox, where keys are row headers and values are row bounding boxes. The columns in the image are: ["Index", "Year", "Cost", "Earning"]. The rows in the image start with: ["Index", "0", "1", "2", "3", "4", "5"].
+# USER IMAGE stored in image_1, as PIL image.
+# RESULT #:
+THOUGHT 0: I need to focus on the 'Year' column and the 'Earning' column. I also need to focus on the rows with years after 2006. The row with year being 2006 starts with "3". So I will focus on the rows starting with "4", and "5".
+ACTION 0:
+```python
+image_with_focused_columns = focus_on_columns_with_mask(image_1, ["Year", "Earning"], columns_bbox)
+image_with_focused_rows = focus_on_rows_with_draw(image_with_focused_columns, ["4", "5"], rows_bbox)
+display(image_with_focused_rows)
+```
+OBSERVATION: Execution success. The output is as follows:
+<the image outputs of the code is added as the second image>
+THOUGHT 1: I can see that the annual earnings after 2006 are $165,498 and $198,765. The sum of the annual earnings after 2006 is $364,263.
+ANSWER: The sum of the annual earnings after 2006 is $364,263. FINAL ANSWER: 364263. TERMINATE
+
+"""

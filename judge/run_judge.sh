@@ -1,0 +1,1 @@
+python judge_server.py --model Qwen/Qwen2.5-7B-Instruct --max-model-len 2048 --disable-log-requests

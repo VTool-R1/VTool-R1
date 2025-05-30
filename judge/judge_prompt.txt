@@ -1,0 +1,10 @@
+User:
+You are given a question, a ground truth, and an answer from a student. If the answer is correct, output <|YES|>, if the answer is wrong, return <|NO|>.
+Ground truth may be a list, separated by |||, a student is expected to give the same list, separated by ||. The order does not matter.
+For example: the answer cherry||Pears||Apples matches the ground truths apple|||pear|||cherry
+Do not give any other response, word, or token.
+Question: <question>
+Ground Truth: <gt>
+Answer: <answer>
+
+System:
