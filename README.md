@@ -11,8 +11,8 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 
 # News
 
-- [2025/5/31] Model checkpoints and code available (We are working on releasing better model checkpoints. Stay Tuned!). <!--<span style="color: red;">[**New!**]</span>-->
-- [2025/5/25] ArXiv preprint available. (Under Contruction. We will keep updating the best results).
+- [2025/5/31] Model checkpoints and code available. (We are working on releasing better model checkpoints. Stay Tuned!) <!--<span style="color: red;">[**New!**]</span>-->
+- [2025/5/25] ArXiv preprint available. (Under Contruction. We will keep updating the best results.)
 
 
 # Introduction
