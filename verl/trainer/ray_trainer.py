@@ -447,7 +447,7 @@ class RayPPOTrainer:
                     #print(self.captured_output)
                     if save_images:
                         try:
-                            self.captured_output.save(f"tmp_vis/{figure_ids[idx]}.png")
+                            #self.captured_output.save(f"tmp_vis/{figure_ids[idx]}.png")
                             '''with open(f"tmp_vis/{figure_ids[idx]}.txt", 'w') as file:
                                 file.write(output_texts[idx])'''
                             #the AI may somehow give dicts which is wrong!!!!!
