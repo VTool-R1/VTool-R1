@@ -17,7 +17,7 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 
 # Introduction
 
-We introduce VTool-R1, the first framework that trains VLMs to generate multimodal chains of thought by interleaving text and intermedi- ate visual reasoning steps. VTool-R1 integrates Python-based visual editing tools into the RFT process, enabling VLMs to learn when and how to generate visual reasoning steps that benefit final reasoning. Trained with outcome-based re- wards tied to task accuracy, our approach elicits strategic visual tool use for reasoning without relying on process-based supervision. Exper- iments on structured visual question answer- ing over charts and tables show that VTool-R1 enhances reasoning performance by teaching VLMs to "think with images" and generate mul- timodal chain of thoughts with tools.
+We introduce VTool-R1, one of the first frameworks that trains VLMs to generate multimodal chains of thought by interleaving text and intermediate visual reasoning steps. VTool-R1 integrates Python-based visual editing tools into the RFT process, enabling VLMs to learn when and how to generate visual reasoning steps that benefit final reasoning. Trained with outcome-based rewards tied to task accuracy, our approach elicits strategic visual tool use for reasoning without relying on process-based supervision. Experiments on structured visual question answering over charts and tables show that VTool-R1 enhances reasoning performance by teaching VLMs to "think with images" and generate multimodal chain of thoughts with tools.
 
 ![alt text](vtool_example.png) Figure 2: Qualitative Example from VTool-R1 (3B): The Model Successfully Integrates Intermediate Visual Steps.
 
