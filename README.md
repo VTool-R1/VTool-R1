@@ -11,8 +11,8 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 
 # News
 
-- [2025/5/31] Model checkpoints and code available. <!--<span style="color: red;">[**New!**]</span>-->
-- [2025/5/25] ArXiv preprint available.
+- [2025/5/31] Model checkpoints and code available (We are working on releasing better model checkpoints. Stay Tuned!). <!--<span style="color: red;">[**New!**]</span>-->
+- [2025/5/25] ArXiv preprint available. (Under Contruction. We will keep updating the best results).
 
 
 # Introduction
@@ -63,9 +63,9 @@ Visual tokens for TableQA are often longer, it is recommended to reduce your bat
 
 3B and 7B models require a minimum of 4xH100 and 8xH100 respectively. Training using our specs typically complete within 24 hours.
 
-Due to the nature of our dataset, we used an LLM as our training verifier. Specifically, Qwen/Qwen2.5-7B-Instruct. We recommend either a single H100 or two A100 for stable training (relative to our training specs, e.g. you may find a single A100 or 4090 sufficient for 4xH100 training). 
+Due to the nature of our dataset, we used an small LLM as our training verifier. Specifically, Qwen/Qwen2.5-7B-Instruct. We recommend either a single H100 or two A100 for stable training (relative to our training specs, e.g. you may find a single A100 or 4090 sufficient for 4xH100 training). 
 
-You need to first launch the judge using our scripts run_judge.sh. We provide a script judge/test.py to test whether your judge was successfully deployed or not.
+You need to first launch the judge using our scripts run_judge.sh and then include your judge host name in judge/judge_info.json. We provide a script judge/test.py to test whether your judge was successfully deployed or not.
 
 By default, the code assumes your judge and training job runs on the same local network, via port 7999. You may change the port if 7999 is taken.
 
@@ -104,5 +104,18 @@ If you find our project helpful, please cite:
       archivePrefix={arXiv},
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/2505.19255}, 
+}
+</pre>
+
+If you find the dataset helpful, please cite Refocus paper:
+<pre style="background-color: auto; padding: 0.8rem 1rem 0.4rem 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.9rem;">
+@misc{fu2025refocusvisualeditingchain,
+      title={ReFocus: Visual Editing as a Chain of Thought for Structured Image Understanding}, 
+      author={Xingyu Fu and Minqian Liu and Zhengyuan Yang and John Corring and Yijuan Lu and Jianwei Yang and Dan Roth and Dinei Florencio and Cha Zhang},
+      year={2025},
+      eprint={2501.05452},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2501.05452}, 
 }
 </pre>
