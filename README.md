@@ -63,9 +63,13 @@ Visual tokens for TableQA are often longer, it is recommended to reduce your bat
 
 3B and 7B models require a minimum of 4xH100 and 8xH100 respectively. Training using our specs typically complete within 24 hours.
 
-Due to the nature of our dataset, we used an LLM as our training verifier. Specifically, Qwen/Qwen2.5-7B-Instruct. We recommend either a single H100 or two A100 for stable training (relative to our training specs, e.g. you may find a single A100 or 4090 sufficient for 4xH100 training). You need to first launch the judge using our scripts run_judge.sh. 
+Due to the nature of our dataset, we used an LLM as our training verifier. Specifically, Qwen/Qwen2.5-7B-Instruct. We recommend either a single H100 or two A100 for stable training (relative to our training specs, e.g. you may find a single A100 or 4090 sufficient for 4xH100 training). 
 
-If your judge server exists on the same local network as your training machine, then set the environment variable LOCAL_JUDGE=YES. Alternatively, we provide an option to use ngrok if your judge server is on a different network, refer to examples/reward_function/refocus_llm.py to configure your ngrok domain.
+You need to first launch the judge using our scripts run_judge.sh. We provide a script judge/test.py to test whether your judge was successfully deployed or not.
+
+By default, the code assumes your judge and training job runs on the same local network, via port 7999. You may change the port if 7999 is taken.
+
+Alternatively, we provide an option to use ngrok (a tunnel service) if your judge server is on a different network, refer to examples/reward_function/refocus_llm.py to configure your ngrok domain. You will also need to set the environment variable NGROK=YES.
 
 ## Questions
 
