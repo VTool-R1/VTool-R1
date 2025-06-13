@@ -77,7 +77,7 @@ Please open an issue if your have any questions.
 
 ## Model Use and Evaluation
 
-We provide 3B, 7B, and 32B model weights on ChartQA and TableQA datasets from ReFocus. Download them from [Hugging Face](https://huggingface.co/VTOOL).
+We provide 3B, 7B, and 32B model weights on ChartQA and TableQA datasets from ReFocus. Download them from [Hugging Face].
 
 Evaluation scripts are in the eval folder. For evaluation, we use ChatGPT from OpenAI as the judge. Please configure your own API keys.
 
