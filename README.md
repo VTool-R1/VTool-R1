@@ -11,7 +11,7 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 
 # News
 
-- [2025/5/31] Model checkpoints and code available. (We are working on releasing better model checkpoints. Stay Tuned!) <!--<span style="color: red;">[**New!**]</span>-->
+- [2025/5/31] Training and eval code available. (We are working on releasing better model checkpoints. Stay Tuned!) <!--<span style="color: red;">[**New!**]</span>-->
 - [2025/5/25] ArXiv preprint available. (Under Contruction. We will keep updating the best results.)
 
 
@@ -93,7 +93,7 @@ This work was supported by the National Science Foundation grants NSF CNS 21-065
 
 ## BibTex
 
-If you find our project helpful, please cite:
+If you find our project helpful, please consider citing:
 
 <pre style="background-color: auto; padding: 0.8rem 1rem 0.4rem 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.9rem;">
 @misc{wu2025vtoolr1vlmslearnthink,
@@ -107,7 +107,7 @@ If you find our project helpful, please cite:
 }
 </pre>
 
-If you find the dataset helpful, please cite Refocus paper:
+If you find the dataset helpful, please consider citing Refocus paper:
 <pre style="background-color: auto; padding: 0.8rem 1rem 0.4rem 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.9rem;">
 @misc{fu2025refocusvisualeditingchain,
       title={ReFocus: Visual Editing as a Chain of Thought for Structured Image Understanding}, 
