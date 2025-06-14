@@ -71,6 +71,8 @@ By default, the code assumes your judge and training job runs on the same local 
 
 Alternatively, we provide an option to use ngrok (a tunnel service) if your judge server is on a different network, refer to examples/reward_function/refocus_llm.py to configure your ngrok domain. You will also need to set the environment variable NGROK=YES.
 
+If you lack the infrastructure to utilize an LLM judge, you may alternatively resort to an exact string match reward function, which can be done by switching refocus_llm.py to refocus.py in your config script. Note that this will have a negative impact on training performance.
+
 ## Questions
 
 Please open an issue if your have any questions.
