@@ -23,7 +23,7 @@ We introduce VTool-R1, one of the first frameworks that trains VLMs to generate 
 
 VTool-R1 7B achieved a **71.7%** accuracy on the ReFOCUS-TableVQA dataset. Which is **10% higher** than the base accuracy of 64.7% using Qwen2.5-VL.
 
-![alt text](accuracy_table.png | width = 100px) 
+![](accuracy_table.png | width=100px) 
 
 ## Installation
 
