@@ -21,9 +21,10 @@ We introduce VTool-R1, one of the first frameworks that trains VLMs to generate 
 
 ![alt text](vtool_example.png) Figure 2: Qualitative Example from VTool-R1 (3B): The Model Successfully Integrates Intermediate Visual Steps.
 
+<img src="https://raw.githubusercontent.com/VTool-R1/VTool-R1/refs/heads/main/accuracy_table.png" width="300px"> 
+
 VTool-R1 7B achieved a **71.7%** accuracy on the ReFOCUS-TableVQA dataset. Which is **10% higher** than the base accuracy of 64.7% using Qwen2.5-VL.
 
-![](accuracy_table.png | width=100px) 
 
 ## Installation
 
