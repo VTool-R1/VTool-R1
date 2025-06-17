@@ -1,0 +1,119 @@
+#!/bin/bash
+#SBATCH --job-name="3B-V2"
+#SBATCH --partition=ghx4
+#SBATCH --nodes=2                                 # Total number of nodes requested
+#SBATCH --ntasks-per-node=1                      # Total number of task requested
+#SBATCH --cpus-per-task=64                     # Total number of cores requested
+#SBATCH --mem=700G
+#SBATCH --time=48:00:00                     # Time limit (hh:mm:ss)
+#SBATCH --gpus-per-node=4   
+#SBATCH -e slurm_logs/traind_%A_%a_error.log
+#SBATCH -o slurm_logs/traind_%A_%a_output.log
+
+##########################################################################
+###The following setting should be set in different project and cluster###
+##########################################################################
+
+export WANDB__SERVICE_WAIT=120
+export WANDB_ENTITY=""
+
+### Ray launch the nodes before training
+
+# Getting the node names
+nodes_array=($(scontrol show hostnames "$SLURM_JOB_NODELIST" | tr '\n' ' '))
+
+head_node=${nodes_array[0]}
+head_node_ip=$(srun --nodes=1 --ntasks=1 -w "$head_node" hostname --ip-address)
+
+# if we detect a space character in the head node IP, we'll
+# convert it to an ipv4 address. This step is optional.
+if [[ "$head_node_ip" == *" "* ]]; then
+    IFS=' ' read -ra ADDR <<<"$head_node_ip"
+if [[ ${#ADDR[0]} -gt 16 ]]; then
+    head_node_ip=${ADDR[1]}
+else
+    head_node_ip=${ADDR[0]}
+fi
+    echo "IPV6 address detected. We split the IPV4 address as $head_node_ip"
+fi
+
+port=6379
+ip_head=$head_node_ip:$port
+export ip_head
+echo "IP Head: $ip_head"
+
+# make sure we set environment variables before Ray initialization
+# If you are using vllm<=0.6.3, you might need to set the following environment variable to avoid bugs:
+# export VLLM_ATTENTION_BACKEND=XFORMERS
+
+# Print out all env variables
+printenv
+
+echo "Starting HEAD at $head_node"
+srun --nodes=1 --ntasks=1 -w "$head_node" \
+        ray start --head --node-ip-address="$head_node_ip" --port=$port \
+        --dashboard-port=8266 \
+        --num-cpus "${SLURM_CPUS_PER_TASK}" --num-gpus "${SLURM_GPUS_PER_NODE}" --block &
+# optional, though may be useful in certain versions of Ray < 1.0.
+sleep 10
+
+# number of nodes other than the head node
+worker_num=$((SLURM_JOB_NUM_NODES - 1))
+
+for ((i = 1; i <= worker_num; i++)); do
+    node_i=${nodes_array[$i]}
+    echo "Debug: Starting worker on node_i = ${node_i}"
+    if [ -z "$node_i" ]; then
+        echo "Error: Empty node name for worker $i"
+        continue
+    fi
+    echo "Starting WORKER $i at $node_i"
+    srun --nodes=1 --ntasks=1 -w "$node_i" \
+            ray start --address "$ip_head" --num-cpus "${SLURM_CPUS_PER_TASK}" --num-gpus "${SLURM_GPUS_PER_NODE}" --block &
+    sleep 5
+done
+
+
+# Ray initlization test (See whether any error in the above excution)
+echo "Testing Ray initialization in the slurm nodes..."
+python3 -c '
+import ray
+try:
+    ray.init(address="auto")
+    print("\n=== Ray Cluster Status ===")
+    print(f"Number of nodes: {len(ray.nodes())}")
+    for node in ray.nodes():
+        print("Node: {}, Status: {}".format(node["NodeManagerHostname"], node["Alive"]))
+        # print(f"Node: {node}")
+    ray.shutdown()
+    print("Ray initialization successful!")
+except Exception as e:
+    print(f"Ray initialization failed: {str(e)}")
+'
+echo "=== Ray test completed ==="
+######
+
+
+
+# Run data preprocessing
+
+#data processing
+
+echo "Start to train..."
+
+MODEL_PATH=Qwen/Qwen2.5-VL-3B-Instruct
+
+module load cuda/12.4
+
+PYTHONUNBUFFERED=1 srun --overlap --nodes=${SLURM_NNODES} --ntasks=1 -w "$head_node" \
+    python3 -m verl.trainer.main \
+    config=examples/tooluse_config_llm.yaml \
+    data.train_files=datasets/train_full.parquet \
+    data.val_files=datasets/val_full.parquet \
+    worker.actor.model.model_path=${MODEL_PATH} \
+    worker.rollout.tensor_parallel_size=1 \
+    trainer.experiment_name='VTOOL-3B-CHART' \
+    trainer.n_gpus_per_node=${SLURM_GPUS_PER_NODE} \
+    trainer.nnodes=${SLURM_NNODES} \
+    trainer.save_checkpoint_path= \
+    trainer.load_checkpoint_path=
