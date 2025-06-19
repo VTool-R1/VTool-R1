@@ -11,7 +11,7 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 
 # News
 
-- [2025/6/18] Updated ArXiv with better results, significantly better results for 3B and 7B!  <span style="color: red;">[**New!**]</span>
+- [2025/6/18] Updated ArXiv with better results!  <span style="color: red;">[**New!**]</span>
 - [2025/5/31] Training and eval code available. (We are working on releasing better model checkpoints. Stay Tuned!) <!--<span style="color: red;">[**New!**]</span>-->
 - [2025/5/25] ArXiv preprint available.
 
