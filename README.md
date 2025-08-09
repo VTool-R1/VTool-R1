@@ -12,7 +12,7 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 # News
 
 - [2025/6/18] Updated ArXiv with better results!  <span style="color: red;">[**New!**]</span>
-- [2025/5/31] Training and eval code available. (We are working on releasing better model checkpoints. Stay Tuned!) <!--<span style="color: red;">[**New!**]</span>-->
+- [2025/5/31] Training and eval code available. (We are working on releasing better model checkpoints. Stay Tuned! Disclaimer: the released model checkpoint might not match the latest results) <!--<span style="color: red;">[**New!**]</span>-->
 - [2025/5/25] ArXiv preprint available.
 
 
@@ -86,7 +86,19 @@ Please open an issue if your have any questions.
 
 We provide 3B, 7B, and 32B model weights on ChartQA and TableQA datasets from ReFocus. Download them from [Hugging Face].
 
-Evaluation scripts are in the eval folder. For evaluation, we use ChatGPT from OpenAI as the judge. Please configure your own API keys.
+Evaluation scripts are in the eval folder. For evaluation, we use ChatGPT from OpenAI as the judge. Please configure your own API keys using environment variables. 
+
+At the moment, we use separate .py scripts for evaluating models under different settings. Please check the table below for the corresponding evaluation script and modify the scripts as needed. 
+
+| Model               | Setting                         | Dataset         | Eval Script                  |
+|---------------------|---------------------------------|-----------------|------------------------------|
+| Qwen2.5-VL-Instruct | vanilla model, pure run         | ChartQA         | eval_qwen_no_tool.py         |
+| Qwen2.5-VL-Instruct | vanilla model, prompt with tool | ChartQA         | eval_qwen_no_rl.py           |
+| Qwen2.5-VL-Instruct | vanilla model, pure run         | TableQA         | eval_qwen_tableqa_no_tool.py |
+| Qwen2.5-VL-Instruct | vanilla model, prompt with tool | TableQA         | eval_qwen_tableqa_no_rl.py   |
+| Qwen2.5-VL-Instruct | trained model, prompt with tool | ChartQA/TableQA | eval_qwen.py                 |
+| openai API (GPT-4o) | pure run                        | ChartQA/TableQA | eval_gpt_no_tool.py          |
+| openai API (GPT-4o) | prompt with tool                | ChartQA/TableQA | eval_gpt_with_tool.py        |
 
 ## Acknowledgement
 
