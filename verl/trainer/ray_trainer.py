@@ -427,7 +427,8 @@ class RayPPOTrainer:
             context = self.get_tool_context()
 
             #context["image_1"] = Image.open(figure_path)
-            context["image_1"] = original_full_batch.non_tensor_batch["multi_modal_data"]
+            #context["image_1"] = original_full_batch.non_tensor_batch["multi_modal_data"]
+            context["image_1"] = [img for item in original_full_batch.non_tensor_batch['multi_modal_data'] for img in item['image']]
 
             if metadata["type"] == "table":
                 context["columns_bbox"] = metadata["columns_bbox"]
