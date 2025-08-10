@@ -78,6 +78,8 @@ Alternatively, we provide an option to use ngrok (a tunnel service) if your judg
 
 If you lack the infrastructure to utilize an LLM judge, you may alternatively resort to an exact string match reward function, which can be done by switching refocus_llm.py to refocus.py in your config script. Note that this will have a negative impact on training performance.
 
+The config is set to 2000 steps, but this is not the actual training time, most training tasks converge within 50-100 steps (< 1-2 days) .
+
 ## Questions
 
 Please open an issue if your have any questions.
