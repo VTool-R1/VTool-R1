@@ -1,6 +1,6 @@
 # VTool-R1
 
-This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Images via Reinforcement Learning on Multimodal Tool Use"
+This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Images via Reinforcement Learning on Multimodal Tool Use" accepted at ICLR 2026.
 
 ---
 
@@ -11,7 +11,8 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 
 # News
 
-- [2025/6/18] Updated ArXiv with better results!  <span style="color: red;">[**New!**]</span>
+- [2026/1/26] VTool-R1 is accepted to [ICLR 2026](https://iclr.cc)! See you in Brazil.  <span style="color: red;">[**New!**]</span>
+- [2025/6/18] Updated ArXiv with better results!</span>
 - [2025/5/31] Training and eval code available. (We are working on releasing better model checkpoints. Stay Tuned! Disclaimer: the released model checkpoint might not match the latest results) <!--<span style="color: red;">[**New!**]</span>-->
 - [2025/5/25] ArXiv preprint available.
 
