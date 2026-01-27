@@ -16,6 +16,9 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 - [2025/5/31] Training and eval code available. (We are working on releasing better model checkpoints. Stay Tuned! Disclaimer: the released model checkpoint might not match the latest results) <!--<span style="color: red;">[**New!**]</span>-->
 - [2025/5/25] ArXiv preprint available.
 
+### New Version Coming Soon
+
+- A new version of VTool-R1 implemented via Agent Loop on the latest version of verl will be available soon.
 
 # Introduction
 
