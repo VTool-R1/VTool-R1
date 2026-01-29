@@ -17,8 +17,9 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 - [2025/5/25] ArXiv preprint available.
 
 ### New Version Coming Soon
-
+As part of our camera ready version of VTool-R1 for ICLR:
 - A new version of VTool-R1 implemented via Agent Loop on the latest version of verl will be available soon.
+- All checkpoints as reported in the camera ready version will be publicly available.
 
 # Introduction
 
