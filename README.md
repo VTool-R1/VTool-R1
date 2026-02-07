@@ -7,7 +7,7 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 
 [![Paper](https://img.shields.io/badge/paper-5f16a8?style=for-the-badge&logo=arxiv&logoColor=white&color=FF5F05)](https://arxiv.org/pdf/2505.19255)
 [![HOMEPAGE](https://img.shields.io/badge/HOMEPAGE-3858bf?style=for-the-badge&logo=homepage&logoColor=white&color=13294B)](https://vtool-r1.github.io/)
-[![Weights](https://img.shields.io/badge/Model%20Weights-63cad3?style=for-the-badge&logo=huggingface&logoColor=white&color=FF5F05)](https://huggingface.co/VTOOL)
+<!--[![Weights](https://img.shields.io/badge/Model%20Weights-63cad3?style=for-the-badge&logo=huggingface&logoColor=white&color=FF5F05)](https://huggingface.co/VTOOL)-->
 
 # News
 
