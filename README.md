@@ -31,6 +31,11 @@ We introduce VTool-R1, one of the first frameworks that trains VLMs to generate 
 
 VTool-R1 7B achieved a **71.7%** accuracy on the ReFOCUS-TableVQA dataset. Which is **10% higher** than the base accuracy of 64.7% using Qwen2.5-VL.
 
+## New Training Library
+
+We have re-implemented VTool-R1 on a new version of verl (0.5) that supports asynchrounous agent loops, which improves multi-turn support and GPU utilization. It also benefits from a CPU-based VLLM judge, removing the need for a separate GPU for evaluation. The repository is available [here](https://github.com/VTool-R1/training-v2)
+
+Below is the old instructions for the original implementation, which we do not suggest running.
 
 ## Installation
 
