@@ -7,19 +7,18 @@ This repo contains codes for the paper "VTool-R1: VLMs Learn to Think with Image
 
 [![Paper](https://img.shields.io/badge/paper-5f16a8?style=for-the-badge&logo=arxiv&logoColor=white&color=FF5F05)](https://arxiv.org/pdf/2505.19255)
 [![HOMEPAGE](https://img.shields.io/badge/HOMEPAGE-3858bf?style=for-the-badge&logo=homepage&logoColor=white&color=13294B)](https://vtool-r1.github.io/)
-<!--[![Weights](https://img.shields.io/badge/Model%20Weights-63cad3?style=for-the-badge&logo=huggingface&logoColor=white&color=FF5F05)](https://huggingface.co/VTOOL)-->
+[![Weights](https://img.shields.io/badge/Model%20Weights-63cad3?style=for-the-badge&logo=huggingface&logoColor=white&color=FF5F05)](https://huggingface.co/VTOOL)
 
 # News
-
+- [2026/3/18] New training and eval code available.
 - [2026/1/26] VTool-R1 is accepted to [ICLR 2026](https://iclr.cc)! See you in Brazil 🇧🇷.<span style="color: red;">[**New!**]</span>
 - [2025/6/18] Updated ArXiv with better results!</span>
-- [2025/5/31] Training and eval code available. (We are working on releasing better model checkpoints. Stay Tuned! Disclaimer: the released model checkpoint might not match the latest results) <!--<span style="color: red;">[**New!**]</span>-->
+<!--<span style="color: red;">[**New!**]</span>-->
 - [2025/5/25] ArXiv preprint available.
 
-### New Version Coming Soon
+### New Version
 As part of our camera ready version of VTool-R1 for ICLR:
-- A new version of VTool-R1 implemented via Agent Loop on the latest version of verl will be available soon.
-- All checkpoints as reported in the camera ready version will be publicly available.
+- A new version of VTool-R1 implemented via Agent Loop on the latest version of verl is available [here](https://github.com/VTool-R1/training-v2)
 
 # Introduction
 
