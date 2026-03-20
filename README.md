@@ -34,6 +34,8 @@ VTool-R1 7B achieved a **71.7%** accuracy on the ReFOCUS-TableVQA dataset. Which
 
 We have re-implemented VTool-R1 on a new version of verl that supports asynchrounous agent loops, which improves multi-turn support and GPU utilization. It also benefits from a CPU-based VLLM judge, removing the need for a separate GPU for evaluation. The repository is available [here](https://github.com/VTool-R1/training-v2)
 
+The latest dataset is available [here](https://huggingface.co/datasets/VTOOL/Refocus_Chart)
+
 Below is the old instructions for the original implementation, which we do not suggest running.
 
 ## Installation
